@@ -1,0 +1,28 @@
+According to AIC:
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + carat * depth + depth * table + depth * x + table * x + carat * table + carat * x + cut * depth 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + depth * table + cut * depth + depth * x + table * x + carat * table + carat * x 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + carat * depth + depth * table + table * x + carat * table + carat * x + cut * depth
+
+312072.835311233 312074.733403769 312085.145926678
+
+
+According to BIC:
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + color * clarity + depth * table + depth * x + table * x + carat * table + carat * x 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + color * clarity + carat * depth + depth * table + depth * x + table * x + carat * table + carat * x 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + color * clarity + carat * depth + depth * table + table * x + carat * table + carat * x
+
+313067.140413493 313073.335550101 313077.228871662
+
+
+According to LOOCV:
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + carat * table + carat * x + depth * table + cut * depth + table * x 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + carat * table + carat * x + depth * table + table * x 
+
+price ~ carat + cut + color + clarity + depth + table + x + carat * cut + carat * color + carat * clarity + cut * color + cut * clarity + color * clarity + carat * depth + table * x + carat * x + depth * table + cut * depth + carat * table
+
+289603.59990758 289715.989037992 289719.481535542
