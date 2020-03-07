@@ -118,10 +118,12 @@ non_greedy_model_selection <- function(all_vector, response, init_vector = NULL,
   return(list(best_models = ret_models, best_scores = ret_scores))
 }
 
-init_vector <- c("carat", "cut", "color", "clarity", "depth", "table", "x")
-additional <- c("carat*cut", "carat*color", "carat*clarity", "cut*color",
+init_vector <- c("carat", "cut", "color", "clarity", "depth", "table", "x", 
+                 "carat*cut", "carat*color", "carat*clarity", "cut*color",
                 "cut*clarity", "color*clarity", "cut*depth", "carat*depth",
                 "depth*table", "depth*x", "table*x", "carat*table", "carat*x")
+additional <- c("cut*table", "cut*x", "color*depth", "color*table", "color*x",
+                "clarity*depth", "clarity*table", "clarity*x")
 
 methods <- c("AIC", "BIC", "LOOCV")
 for(m in methods){

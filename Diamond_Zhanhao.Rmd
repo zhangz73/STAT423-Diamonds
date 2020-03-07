@@ -8,11 +8,11 @@ output: pdf_document
 Required Packages:
 ```{r}
 library(corrplot)
-library(tidyverse)
 library(data.table)
 library(sets)
 library(dequer)
 library(MASS)
+library(glmnet)
 ```
 
 Load Data:
@@ -310,4 +310,25 @@ test_interactions <- function(all_vector, data, level = 0.05, correction = NULL,
               paste(significant_predictors, collapse = ",")))
   return(significant_predictors)
 }
+```
+
+```{r}
+reduced <- compressed_df[compressed_df$z > 0, 2:ncol(compressed_df)]
+mm <- model.matrix(price ~ .^2, data = reduced)
+
+lambda <- cv.glmnet(mm, reduced$price, alpha = 1)
+opt_lambda <- lambda$lambda.1se
+opt_lambda
+
+lasso <- glmnet(mm, reduced$price, alpha = 1, lambda = 3)
+coefs <- coef(lasso)
+selected_coefs <- coefs[coefs != 0]
+length(selected_coefs)
+selected_coefs
+```
+
+```{r}
+pred <- cbind(rep(1, nrow(mm)), mm) %*% as.numeric(coef(lasso))
+res <- reduced$price - pred
+qqnorm(res)
 ```
